@@ -1,20 +1,20 @@
 // src/pages/Home.jsx
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import InputForm from '../components/InputForm';
 import homeimage from '../data/image.png';
 
 const Home = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const goToAllPlaces = () => {
-    navigate('/allplaces');
-  };
+  // // const goToAllPlaces = () => {
+  // //   navigate('/allplaces');
+  // // };
 
-  const goToNearestMap = () => {
-    navigate('/nearmap');
-  };
+  // // const goToNearestMap = () => {
+  // //   navigate('/nearmap');
+  // // };
 
   return (
     <div className="flex flex-col min-h-[100%]">
@@ -30,7 +30,7 @@ const Home = () => {
           <InputForm />
 
           {/* Tambahkan tombol di bawah InputForm */}
-          <div className="flex space-x-4 mt-4 w-full">
+          {/* <div className="flex space-x-4 mt-4 w-full">
             <button
               onClick={goToAllPlaces}
               className="w-1/2 py-3 bg-blue-500 text-white text-lg rounded-lg hover:bg-blue-600 transition-colors"
@@ -43,7 +43,7 @@ const Home = () => {
             >
               Tempat Terdekat
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
