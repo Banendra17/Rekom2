@@ -1,7 +1,7 @@
 // src/pages/Detail.jsx
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
@@ -11,7 +11,7 @@ const Detail = () => {
   const location = useLocation(); // Tambahkan useLocation untuk mendeteksi perubahan rute
   const [place, setPlace] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [nearestPlaces, setNearestPlaces] = useState([]);
+  // const [nearestPlaces, setNearestPlaces] = useState([]);
 
   const slugify = (text) => {
     return text
@@ -32,16 +32,16 @@ const Detail = () => {
       const selectedPlace = data.find((place) => slugify(place.Place_Name) === slug);
       setPlace(selectedPlace);
 
-      if (selectedPlace) {
-        const distanceResponse = await axios.post('https://rekombex.onrender.com/distance', {
-          lat: selectedPlace.Lat,
-          lon: selectedPlace.Long,
-        });
+      // if (selectedPlace) {
+      //   const distanceResponse = await axios.post('https://rekombex.onrender.com/distance', {
+      //     lat: selectedPlace.Lat,
+      //     lon: selectedPlace.Long,
+      //   });
 
-        const nearestData = distanceResponse.data;
-        const filteredNearestPlaces = nearestData.filter((p) => p.Distance > 0).slice(0, 3);
-        setNearestPlaces(filteredNearestPlaces);
-      }
+      //   const nearestData = distanceResponse.data;
+      //   const filteredNearestPlaces = nearestData.filter((p) => p.Distance > 0).slice(0, 3);
+      //   setNearestPlaces(filteredNearestPlaces);
+      // }
 
       setLoading(false);
     } catch (error) {
@@ -104,7 +104,7 @@ const Detail = () => {
       </div>
 
       {/* Bagian tempat wisata terdekat */}
-      {nearestPlaces.length > 0 && (
+      {/* {nearestPlaces.length > 0 && (
         <div className="mt-8">
           <h3 className="text-xl font-semibold mb-4">Tempat Wisata Terdekat</h3>
           <ul className="space-y-4">
@@ -120,11 +120,11 @@ const Detail = () => {
             ))}
           </ul>
         </div>
-      )}
+      )} */}
 
-      {nearestPlaces.length === 0 && (
+      {/* {nearestPlaces.length === 0 && (
         <p className="text-red-500">Tidak ada tempat wisata terdekat yang ditemukan.</p>
-      )}
+      )} */}
     </div>
   );
 };
